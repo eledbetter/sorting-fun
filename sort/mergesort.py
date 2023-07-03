@@ -1,5 +1,5 @@
 # Recursively splits inputted list in half then sorts each half 
-def mergeSort(inputArray):
+def sort(inputArray):
 
     arraySize = inputArray.__len__()
 
@@ -12,10 +12,10 @@ def mergeSort(inputArray):
     unsortedRight = inputArray[(int)(arraySize / 2) : arraySize]
 
     # sort left half of array
-    sortedLeft = mergeSort(unsortedLeft)
+    sortedLeft = sort(unsortedLeft)
 
     # sort right half of array
-    sortedRight = mergeSort(unsortedRight)
+    sortedRight = sort(unsortedRight)
 
 
     # compare first value of both halves 
@@ -42,24 +42,3 @@ def mergeSort(inputArray):
         sortedWhole.append(sortedRight.pop(0))
 
     return sortedWhole
-
-def selectionSort(inputArray):
-
-    for pos in range(0, inputArray.__len__()):
-        selectedPosition = pos
-
-        # find lowest value and select it
-        for i in range(pos, inputArray.__len__()):
-            if (inputArray[selectedPosition] > inputArray[i]):
-                selectedPosition = i
-
-        # swap selected value with current position
-        temp = inputArray[pos]
-        inputArray[pos] = inputArray[selectedPosition]
-        inputArray[selectedPosition] = temp
-
-    return inputArray
-
-def bubbleSort(inputArray):
-    print("TODO: finish implementation")
-    return inputArray
