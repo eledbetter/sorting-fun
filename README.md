@@ -1,5 +1,5 @@
 ﻿# Sorting fun!
-A simple project to showcase the different sorting algorithms I'm studying. The goal is to create as clean and efficient code as I can.
+A simple project to showcase the different sorting algorithms I'm studying. The goal is to create as clean and efficient code as I can, while comparing the strengths and weaknesses of each algorithm. 
 
 ## Implemented Algorithms
 - Merge Sort
