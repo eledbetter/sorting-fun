@@ -4,9 +4,9 @@ A simple project to showcase the different sorting algorithms I'm studying. The 
 ## Implemented Algorithms
 - Merge Sort
 - Selection Sort
+- Bubble Sort
 
 ## Planned Algorithms
-- Bubble Sort
 - Quicksort
 - Insertion Sort
 - Patience Sorting
