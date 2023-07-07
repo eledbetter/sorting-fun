@@ -16,5 +16,5 @@ A simple project to showcase the different sorting algorithms I'm studying. The 
 
 ## TODO
 - Research more sort algorithms
-- Revamp testing (maybe use randomized lists?)
 - More documentation for each algorithm
+- Implement way to compare iterations/swaps each algorithm performs, especially for larger lists

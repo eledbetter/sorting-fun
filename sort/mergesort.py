@@ -1,15 +1,15 @@
 # Recursively splits inputted list in half then sorts each half 
-def sort(inputArray):
+def sort(inputList):
 
-    arraySize = inputArray.__len__()
+    arraySize = inputList.__len__()
 
     # quit if only 1 element
     if(arraySize <= 1):
-        return inputArray
+        return inputList
     
     # split inputted array into halves
-    unsortedLeft = inputArray[0 : (int)(arraySize / 2)]
-    unsortedRight = inputArray[(int)(arraySize / 2) : arraySize]
+    unsortedLeft = inputList[0 : (int)(arraySize / 2)]
+    unsortedRight = inputList[(int)(arraySize / 2) : arraySize]
 
     # sort left half of array
     sortedLeft = sort(unsortedLeft)
