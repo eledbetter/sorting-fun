@@ -1,6 +1,8 @@
+comparisons = 0
+
 # Recursively splits inputted list in half then sorts each half 
 def sort(inputList):
-
+    global comparisons
     arraySize = inputList.__len__()
 
     # quit if only 1 element
@@ -33,6 +35,8 @@ def sort(inputList):
         if (sortedRight.__len__() < 1):
             sortedWhole.append(sortedLeft.pop(0))
             continue
+
+        comparisons += 1
 
         # append lowest value
         if (sortedLeft[0] < sortedRight[0]):
