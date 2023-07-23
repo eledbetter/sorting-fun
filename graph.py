@@ -8,13 +8,31 @@ TODO: implement way to track and display comparisons each algorithm makes
 import matplotlib.pyplot as plt
 from sort import *
 
+'''
+get # of comparisons from each algorithm
+    
+display graph
+'''
+sortAlgorithms = ["bubblesort", "mergesort", "selectionsort"]
 
+def drawGraph(comparisons):
+    global sortAlgorithms
 
-aList = [4, 2, 7, 10, 22, 1]
-print("bubblesort: ", bubblesort.sort(aList), bubblesort.comparisons)
-print("mergesort: ", mergesort.sort(aList), mergesort.comparisons)
-print("selectionsort: ", selectionsort.sort(aList), selectionsort.comparisons)
+    plt.bar(sortAlgorithms, comparisons)
+    plt.ylabel('comparisons')
+    plt.show()
 
-plt.plot([1, 2, 3, 4])
-plt.ylabel('some numbers')
-plt.show()
+def compareSort(inputList):
+    # is there a way to iterate through these?
+    bubblesort.sort(inputList)
+    mergesort.sort(inputList)
+    selectionsort.sort(inputList)
+
+    comparisons = [bubblesort.comparisons, 
+              mergesort.comparisons, 
+              selectionsort.comparisons]
+    
+    drawGraph(comparisons)
+
+unsorted = [9, 2, 3, 1, 19, 0]
+compareSort(unsorted)
