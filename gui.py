@@ -1,35 +1,43 @@
 '''
 UI for user to input settings for the list each algorithm will sort
 
-TODO: get user input and pass it to graph.py
+TODO: multiple plot management & cleanup
 '''
 import tkinter as tk
 import random
 import graph
 
-# create randomized list of inputted length and pass it to graph module
-def createRandomizedList(numElements):
-    unsorted = []
+class gui(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("title")
+        self.geometry('300x200')
 
-    for a in range(0, numElements):
-        unsorted.append(random.randrange(0, 100))
-    print("Sorting list with", numElements, "random elements")
-    graph.compareSort(unsorted)
+        self.intInput = tk.IntVar(value=5)
 
-# create main input GUI
-def createGUI():
-    mainWindow = tk.Tk()
-    mainWindow.title("title")
-    mainWindow.geometry('300x200')
+        self.createGUI()
 
-    tk.Label(mainWindow, text="List size").grid(row=0)
-    sizeInput = tk.Entry(mainWindow)
-    sizeInput.grid(row=0, column=1)
-    
-    # TODO: get user input
-    submitButton = tk.Button(mainWindow, text="Sort!", command=lambda: createRandomizedList(5)).grid(row=1)
+    # create main input GUI
+    def createGUI(self):
 
-    mainWindow.mainloop()
+        self.entryLabel = tk.Label(self, text="List Size")
+        self.entry = tk.Entry(self, textvariable=self.intInput)
+        self.submitButton = tk.Button(self, text="Sort!", command=lambda: self.createRandomizedList())
+
+        self.entryLabel.grid(row=0, column=0, padx=5, pady=5)
+        self.entry.grid(row=0, column=1, padx=5, pady=5)
+        self.submitButton.grid(row=1, column=1, padx=5, pady=5)
+
+    # create randomized list of inputted length and pass it to graph module
+    def createRandomizedList(self):
+        listSize = self.intInput.get()
+        unsorted = []
+
+        for a in range(0, listSize):
+            unsorted.append(random.randrange(0, 100))
+        print("Sorting list with", listSize, "random elements")
+        graph.compareSort(unsorted)
 
 if __name__ == "__main__":
-    createGUI()
+    app = gui()
+    app.mainloop()
